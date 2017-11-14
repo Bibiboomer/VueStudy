@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>    
+</head>
+<body>
+    <div id="box">
+        <input value="hello组件" type="button" @click="comP='hello'">
+        <input value="Vue组件" type="button" @click="comP='Vue'">        
+        <component v-bind:is="comP"></component>
+        <hello></hello>
+        <Vue></Vue>
+        <component is='Vue'></component>
+        <component is='hello'></component>
+    </div>
+    <script>
+
+//     <div id="box">
+        //动态组件 
+//     <input value="hello组件" type="button" @click="comP='hello'">
+//     <input value="Vue组件" type="button" @click="comP='Vue'">        
+//     <component v-bind:as="comP"></component>
+
+        //自定义组件正常使用组件
+//     <hello></hello>
+//     <Vue></Vue>
+
+        //保留component + is
+//     <component is='Vue'></component>
+//     <component is='hello'></component>
+
+
+    // </div>
+        let vm = new Vue({
+            el:"#box",
+            data:{
+                comP:'hello'
+            },
+            components:{
+
+                'hello':{
+                    template:'<h2>我是hello组件</h2>'
+                },
+                'Vue':{
+                    template: '<h2>我是Vue组件</h2>'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

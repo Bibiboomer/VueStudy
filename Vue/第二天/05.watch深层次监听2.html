@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        {{a}}<br>
+        {{b}}<br>
+        {{obj.name}}
+    </div>
+</body>
+<script>
+    //vm已经挂载了很多东西
+    let vm = new Vue({
+        el: "#box",
+        data: {
+            stark:"shudong",
+            a:1111,
+            b:2222,
+            obj:{
+                name:"stark",
+                age:18
+            }
+        }
+    })
+    
+    //watch
+    //类型：{[key:string]:string | Function | Object }
+    //详细：
+    
+    //一个对象，键是需要观察的表达式
+    //值是对于的回调函数。值也可以是方法名，
+    //或者包含选项的对象。Vue示例将会在实例化时调用
+    // $watch(),遍历watch对象的每一个属性
+
+    // vm.$watch('a',function(){
+    //     alert('a发生了变化');
+    //     this.b = this.a + 100
+    // })
+    vm.$watch('obj',function(){
+        alert(this.obj.name);
+
+        //不弹出，因为是一个对象，需要深度监听
+        // this.b = this.a + 100
+    },{deep:true})
+    document.onclick = function(){
+        vm.obj.name="shudong";
+    }
+</script>
+</html>

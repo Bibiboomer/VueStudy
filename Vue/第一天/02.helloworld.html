@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <!--  这个声明vue的挂载点，这个里面的所有元素都归vuejs 接管 -->
+    <div id="app">
+        {{name}}
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            name:"Hello vue"
+        }
+    })
+</script>
+<!-- 在控制套可以使用：vm.name = xxx改变页面上内容 -->
+<!-- 改变mode无法改变视图内容：在控制台：app.name = xxx 无法改变页面上的内容 -->
+</html>

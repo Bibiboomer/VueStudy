@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="js/vue.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <!-- 不需要传东西的话直接写自闭和标签则可
+        <shudong/> -->
+
+        <shudong>
+                此时这里面写得东西替换掉slot
+            <!-- <div>
+
+            </div> -->
+            <!-- <div>i am content</div> -->
+        </shudong>
+    </div>
+
+    <!-- 模板内容 -->
+    <template id="stark">
+        <div>
+            <h1>
+                slot开始
+            </h1>
+            <slot>
+                slot开始位置
+            </slot>
+        </div>
+    </template>
+</body>
+<script>  
+//     <body>
+//     <div id="box">
+//         <!-- 不需要传东西的话直接写自闭和标签则可
+//         <shudong/> -->
+
+//         <shudong>
+//                 此时这里面写得东西替换掉slot
+//             <!-- <div>
+
+//             </div> -->
+//             <!-- <div>i am content</div> -->
+//         </shudong>
+//     </div>
+
+//     <!-- 模板内容 -->
+//     <template id="stark">
+//         <div>
+//             <h1>
+//                 slot开始
+//             </h1>
+//             <slot>
+//                 slot开始位置
+//             </slot>
+//         </div>
+//     </template>
+// </body>
+
+    let vm = new Vue({
+        el: "#box",
+        data: {
+            a:"aaa"
+        },
+        components: {
+            'shudong':{
+                template:"#stark"
+            }
+        }
+    })
+</script>
+</html>
+

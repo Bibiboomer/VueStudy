@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="see">我是显示的内容</div>
+        <div v-bind:id="id">id的值为{{id}}</div>
+        <img :src="imgs" alt="">
+    </div>
+</body>
+<script>
+    let data = {
+        msg: 'hello Vue',
+        see : true,
+        id : 9000,
+        imgs : 'https://cn.vuejs.org/images/logo.png'
+    }
+    let vm = new Vue({
+        el:"#app",
+        data:data
+    })
+
+</script>
+</html>

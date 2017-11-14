@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="js/vue.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    
+</head>
+<body>
+    <div id="box">
+        <span>方猪猪</span>
+    </div>
+
+    <script type="x-template" id="app">
+        <div>
+            hellow ,{{name}}
+        </div>
+    </script>
+</body>
+<script>
+// <body>
+//     <div id="box">
+//         <span>方猪猪</span>
+//     </div>
+
+//     < type="x-template" id="app">
+//         <div>
+//             hellow ,{{name}}
+//         </div>
+
+// <!-- </ script>
+//  </body>
+    let vm = new Vue({
+        el:"#box",
+        data: {
+            name : "明明大王",
+            html: "<div>hello Vue</div>"
+        },
+        template:"#app"
+    })
+    //模板会替代挂载的内容
+</script>
+</html>
+
+

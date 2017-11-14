@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="js/vue.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>        
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="box">>
+        <!-- <input v-model="text"> -->
+        <ui-button></ui-button>
+        <!-- <ui-button :text="text"></ui-button> -->
+        <ui-button text="复制">
+
+            <ui-button text >
+            
+            </ui-button>
+
+        </ui-button>
+        <!-- <ui-button :text="text"> -->
+        </ui-button>
+        <ui-button text="剪切"> </ui-button>
+        <ui-button text="保存"> </ui-button>
+    </div>
+</body>
+<script>
+
+//父组件子组件没有明确的定义
+    // <body>
+    // <div id="box">>
+
+           // 结合v-model + v-bind 实现动态绑定
+    //     <input v-model="text">
+    //     <ui-button :text="text"></ui-button>
+
+    //     <ui-button text="复制"></ui-button>
+    //     <ui-button text="提交"></ui-button>
+    //     <ui-button text="剪切"></ui-button>
+    //     <ui-button text="保存"></ui-button>
+    // </div>
+    // </body>
+
+//  根据官网上定义，Vue.component定义的是子组件，在html中使用时则成为了父组件，父组件传入了参数text = "xxx",
+//  子组件通过props获取text的数据，props相当于data，text则为属性
+
+    Vue.component('uiButton',{
+        // template: '<button class="ui teal button"> 保存 </button>'
+        template: '<button class="ui teal button"> {{text}} </button>',
+        props: ['text']
+    })
+    new Vue({
+        el:'#box',
+        data:{
+            text:"qipaxxxx",
+        }
+
+    })
+
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <button id="btn">点我啊</button>
+        <button onclick="change()">更新</button>
+        <button onclick="destroy()">销毁</button>
+    </div>
+</body>
+<script>    
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            msg: "hello Vue"
+        },
+        beforeCreate(){
+            alert("示例创建前")
+        },
+        created(){
+            alert('示例已经创建完成')
+        },
+        beforeMount(){
+            alert('示例挂载前')
+        },
+        mounted(){
+            //此时才能操作DOM
+            alert("示例已经挂载完成")
+            $('#btn').click(function(){
+                alert('U do it')
+            })
+        },
+        beforeUpdate(){
+            alert('示例更新前')
+        },
+        updated(){
+            alert('示例更新完成')
+        },
+        beforeDestroy(){
+            alert('示例销毁前')
+        },
+        destroyed(){
+            alert('示例已经销毁')
+        }
+    })
+    function change(){
+        vm.msg = "Vue update";
+    }
+    function destroy(){
+        vm.$destroy();
+    }
+    //示例销毁后，无法更新，但是可以进行dom操作
+</script>
+</html>

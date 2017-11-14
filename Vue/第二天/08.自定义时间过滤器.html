@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <!-- 时间戳：有按照毫秒也有按照秒来计算的 -->
+        {{dates | date}}
+    </div>
+</body>
+<script>
+    //全局的过滤器
+    Vue.filter('date',function(){
+        let oDate = new Date();
+        return oDate.getFullYear() + '-' + (oDate.getMonth()+1) + "-" + oDate.getDate()+'-'+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+    })
+    let vm = new Vue({
+        el: "#box",
+        data: {
+            dates : Date.now()
+        }
+    })
+</script>
+</html>

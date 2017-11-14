@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div>
+            <div @click="change">{{msg}}</div>
+            <stark-wang></stark-wang>
+            <stark-wang></stark-wang>
+            <stark-wang></stark-wang>
+            <stark-wang></stark-wang>
+            
+        </div>
+    </div>
+    <!-- 模板内容 -->
+    <script type="x-template" id="tpl"> 
+        <div>
+            <h2 @click= "change">
+                标题：{{msg}}
+            </h>    
+            <ul>
+                <li>1111</li>
+                <li>2222</li>
+                <li>3333</li>
+                <li>4444</li>
+            </ul>
+        </div>    
+    </script>
+</body>
+<script>
+    let vm = new Vue({
+        el: "#box",
+        // 组件
+        components:{
+            //组件名称
+            'starkWang':{
+                //使用闭包的方式。相互组件不相互影响作用域
+                data(){
+                    return {
+                        msg: "hello world"
+
+
+                    }
+                },
+                methods:{
+                    change(){
+                        this.msg = "changed"
+                    }
+                },
+                template:"#tpl"
+            }
+        }
+    })
+</script>
+</html>

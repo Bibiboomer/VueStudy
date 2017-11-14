@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="js/vue.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    
+</head>
+
+<body>
+    <div id="box1">
+        <stark> 
+
+        </stark>
+    </div>
+
+    <div id="box2">
+        <stark>
+
+        </stark>
+    </div>
+    <script>
+        Vue.component('stark',{
+            //组件里 data一定要用闭包的形式写，防止作用域相互影响
+            data:function(){
+                // return 了一个新的对象
+                return {
+                    show : false
+                }
+            },
+            template:`
+                <div>
+                    <h1> stark </h1>
+                </div>
+            `
+        })
+        var vm = new Vue ({
+            el:"#box1"
+        })
+        var vm = new Vue({
+            el:"#box2"
+        })
+    </script>
+</body>
+</html>

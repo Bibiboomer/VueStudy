@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+        {{arr}}
+        <button v-on:click="show">show</button>
+        <button v-on:mouseover="show">show</button>
+        <button @dblclick="show">show</button>
+        <button @click="add(555)">add</button>
+        <!-- 如果需要传参则加() -->
+    </div>
+</body>
+<script>
+//     <body>
+//     <div id="app">
+//         {{arr}}
+//         <button v-on:click="show">show</button>
+//         <button v-on:mouseover="show">show</button>
+//         <button @dblclick="show">show</button>
+//         <button @click="add(555)">add</button>
+//         <!-- 如果需要传参则加() -->
+//     </div>
+// </body>
+    let vm = new Vue({
+        el: "#app",
+        data:{
+            arr:[22,333,4,555]
+        },
+        methods:{
+            show:function(){
+                console.log("调用了show方法")
+            },
+            // es6的写法
+            add(data){
+                this.arr.push(data)
+            }
+        }
+    })
+
+</script>
+</html>

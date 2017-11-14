@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+
+        github:Id: <input type="text" v-model='uid'>
+        <button @click ="getUser(uid)">获取指定的github账号信息并且显示</button>
+        <img :src="user.avatar_url" alt="">
+    </div>
+</body>
+<script>    
+    new vue({
+        el:"#box",
+        data:{
+            user:{},
+            uid:''
+        },
+        methods:{
+            getGitUser:function(){
+                this.$http.get(`http://api.github.com/users/${$uid}`)
+                .then(res=>{
+                    console.log(res);
+                    this.user = res;
+                })
+            }
+        }
+    })
+</script>
+</html>
