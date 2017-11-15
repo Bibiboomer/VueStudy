@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./build/vue.min"></script>
+    <script src="https://cdn.bootcss.com/axios/0.16.2/axios.js"></script>
+</head>
+<body>
+    <div id="box">
+        <button @click ="getGoods">
+            获取商品
+        </button> 商品名称：{{goods_name}}
+
+        <img :src="img" alt="">
+    </div>
+    <script>
+        new Vue({
+            el: "#box",
+            data: {
+                goods_name:'',
+                img:''
+            },
+            methods:{
+                getGoods(){
+                    axios.get("http://www.easy-mock.com/mock/5a0ab09ceace8604020913e3/example/upload")
+                    .then( res => {
+                        console.log(res);
+                        let data = res.data.data;
+                        let goodsList = data;
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

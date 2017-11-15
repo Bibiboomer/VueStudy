@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./build/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div v-red>
+            {{name}}
+        </div>
+    </div>
+</body>
+<script>
+
+
+    // 注册或获取全局指令：Vue.directive( id, [definition] )
+    Vue.directive('red',{
+        bind: function(a){
+            a.style.background ="red";
+        }
+    })
+    let vm = new Vue({
+        el: "#box",
+        data:{
+            name : "liming"
+        }
+    })
+</script>
+</html>

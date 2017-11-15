@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./build/vue.min.js"></script>
+    <style>
+        #box div{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+        #box .hello{
+            background-color: red;
+            top:0;
+            left:0;
+        }
+        #box .world{
+            background-color: blueviolet;
+            top:0;
+            right:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="hello" v-drag>
+
+        </div>
+        <div class="world" v-drag>
+
+        </div>
+    </div>
+    <script>
+        Vue.directive('drag',function(el){
+            //鼠标按下时
+            el.onmousedown = function(e){
+                var X = e.clientX -el.offsetLeft;
+                var Y = e.clientY -el.offsetTop;
+
+                //鼠标移动
+                document.onmousemove = function(e){
+                    var l = e.clientX - X;
+                    var t= e.clientY - Y;
+                    el.style.left = l + "px";
+                    el.style.top = t + "px";
+                }
+                //鼠标抬起时
+                document.onmouseup = function(e){
+                    document.onmousemove = null;
+            };
+                
+            }
+        })
+        let vm = new Vue({
+            el: "#box",
+            
+        })
+    </script>
+</body>
+</html>
